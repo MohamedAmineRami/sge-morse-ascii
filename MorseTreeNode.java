@@ -8,6 +8,17 @@ class MorseTreeNode {
         this.dot = null;
         this.dash = null;
     }
+
+    public static void main(String[] args) {
+        MorseCodeTree morseCodeTree = new MorseCodeTree();
+
+        String[] morseCodes = {".", "-", "..", ".-", "-.", "--"};
+
+        for (String code : morseCodes) {
+            String letter = morseCodeTree.getLetter(code);
+            System.out.println("Morse Code: " + code + " -> Letter: " + letter);
+        }
+    }
 }
 
  class MorseCodeTree {
