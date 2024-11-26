@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class MorseTreeNode {
     char letter;
     MorseTreeNode dot;  // Left child
@@ -9,16 +11,23 @@ class MorseTreeNode {
         this.dash = null;
     }
 
-    public static void main(String[] args) {
-        MorseCodeTree morseCodeTree = new MorseCodeTree();
+        public static void main(String[] args) {
+            MorseCodeTree morseCodeTree = new MorseCodeTree();
+            Scanner scanner = new Scanner(System.in);
 
-        String[] morseCodes = {".", "-", "..", ".-", "-.", "--"};
+            System.out.println("Introduce los códigos Morse separados por espacios (por ejemplo: . - .. .- -.-. .):");
+            String input = scanner.nextLine();
 
-        for (String code : morseCodes) {
-            String letter = morseCodeTree.getLetter(code);
-            System.out.println("Morse Code: " + code + " -> Letter: " + letter);
+            String[] morseCodes = input.split(" ");
+
+            for (String code : morseCodes) {
+                String letter = morseCodeTree.getLetter(code);
+                System.out.println("Morse Code: " + code + " -> Letter: " + letter);
+            }
+
+            scanner.close();
         }
-    }
+
 }
 
  class MorseCodeTree {
